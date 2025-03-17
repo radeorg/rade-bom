@@ -19,6 +19,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jdk.version>23</jdk.version>
         <revision>1.0.0-SNAPSHOT</revision>
+        <rade.version>1.0.0-SNAPSHOT</rade.version>
 
         <spring-boot.version>3.4.3</spring-boot.version>
         <spring-cloud-dependencies.version>2023.0.3</spring-cloud-dependencies.version>
@@ -64,6 +65,34 @@
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rade-api</artifactId>
+                <version>${rade.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rade-core</artifactId>
+                <version>${rade.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rade-security</artifactId>
+                <version>${rade.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rade-oauth</artifactId>
+                <version>${rade.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rade-dbo</artifactId>
+                <version>${rade.version}</version>
+            </dependency>
+
+
 
             <!-- ################################### spring-cloud-dependencies ################################# -->
             <dependency>
