@@ -1,0 +1,1364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.4.3</version>
+    </parent>
+    <groupId>org.dows.framework</groupId>
+    <artifactId>rade-dependencies</artifactId>
+    <version>${revision}</version>
+    <packaging>pom</packaging>
+
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <jdk.version>17</jdk.version>
+
+        <revision>1.0.0</revision>
+
+        <spring-cloud-dependencies.version>2023.0.3</spring-cloud-dependencies.version>
+        <spring-cloud-alibaba.version>2023.0.1.2</spring-cloud-alibaba.version>
+
+        <mybatis-plus.version>3.5.6</mybatis-plus.version>
+        <guava.version>[30.1.1-jre,)</guava.version>
+        <hutool-version>5.8.25</hutool-version>
+        <jjwt.version>0.12.5</jjwt.version>
+
+        <retrofit.version>2.9.0</retrofit.version>
+        <okio.version>2.8.0</okio.version>
+
+        <flink.version>1.18.0</flink.version>
+        <flink-mysql.version>3.0.1</flink-mysql.version>
+        <flink-sqlserver.version>3.0.1</flink-sqlserver.version>
+        <debezium.version>2.7.0.Final</debezium.version>
+
+        <flatten-maven-plugin.version>1.6.0</flatten-maven-plugin.version>
+        <maven-compiler-plugin.version>3.13.0</maven-compiler-plugin.version>
+        <maven-deploy-plugin.version>3.1.3</maven-deploy-plugin.version>
+        <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
+        <maven-source-plugin.version>3.3.1</maven-source-plugin.version>
+    </properties>
+
+<!--    <modules>
+        <module>../rade-parent</module>
+    </modules>-->
+
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- ################################### spring-cloud-dependencies ################################# -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud-dependencies.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- <dependency>
+                 <groupId>org.apache.camel.springboot</groupId>
+                 <artifactId>camel-spring-boot-dependencies</artifactId>
+                 <version>3.20.2</version>
+                 <type>pom</type>
+                 <scope>import</scope>
+             </dependency>
+ -->
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring-boot.version}</version>
+                <exclusions>
+                    <!--去tomcat-->
+                    <exclusion>
+                        <groupId>org.springframework.boot</groupId>
+                        <artifactId>spring-boot-starter-tomcat</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!--boot start-->
+
+            <!--         <dependency>
+                         <groupId>org.springframework.security</groupId>
+                         <artifactId>spring-security-oauth2-authorization-server</artifactId>
+                         <version>1.2.2</version>
+                     </dependency>-->
+
+            <dependency>
+                <groupId>org.redisson</groupId>
+                <artifactId>redisson-spring-boot-starter</artifactId>
+                <version>3.27.0</version>
+            </dependency>
+
+
+            <!--############################# mq start ##############################-->
+            <dependency>
+                <groupId>org.apache.rocketmq</groupId>
+                <artifactId>rocketmq-spring-boot-starter</artifactId>
+                <version>2.3.1</version>
+            </dependency>
+
+            <!-- ############################### db mybatis ###################################-->
+
+            <dependency>
+                <groupId>org.mariadb.jdbc</groupId>
+                <artifactId>mariadb-java-client</artifactId>
+                <version>3.3.2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.mysql</groupId>
+                <artifactId>mysql-connector-j</artifactId>
+                <version>8.3.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>3.0.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-boot-starter</artifactId>
+                <version>${mybatis-plus.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis-spring</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-extension</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-core</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>mybatis-plus-annotation</artifactId>
+                <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.baomidou</groupId>
+                <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+                <version>4.3.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+
+            <!--            <dependency>
+                            <groupId>com.github.jsqlparser</groupId>
+                            <artifactId>jsqlparser</artifactId>
+                            <version>4.9</version>
+                        </dependency>-->
+
+
+            <!--alibaba -->
+            <dependency>
+                <groupId>com.alipay.sdk</groupId>
+                <artifactId>alipay-sdk-java</artifactId>
+                <version>4.33.42.ALL</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>3.3.3</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.nacos</groupId>
+                <artifactId>nacos-api</artifactId>
+                <version>2.1.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>1.8.5</version>
+            </dependency>
+
+
+            <!--############### dom相关 ###############-->
+            <dependency>
+                <groupId>org.dom4j</groupId>
+                <artifactId>dom4j</artifactId>
+                <version>2.1.3</version>
+            </dependency>
+
+            <dependency>
+                <groupId>jaxen</groupId>
+                <artifactId>jaxen</artifactId>
+                <version>1.2.0</version>
+            </dependency>
+
+
+            <!-- ################################## basice ############################## -->
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.32</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.modelmapper</groupId>
+                <artifactId>modelmapper</artifactId>
+                <version>3.2.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>1.5.5.Final</version>
+            </dependency>
+
+            <!--            <dependency>
+                            <groupId>org.freemarker</groupId>
+                            <artifactId>freemarker</artifactId>
+                            <version>2.3.32</version>
+                        </dependency>-->
+
+            <!--日志相关-->
+            <dependency>
+                <groupId>com.lmax</groupId>
+                <artifactId>disruptor</artifactId>
+                <version>3.4.4</version>
+            </dependency>
+
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool-version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.73</version>
+            </dependency>
+            <dependency>
+                <groupId>org.json</groupId>
+                <artifactId>json</artifactId>
+                <version>20210307</version>
+            </dependency>
+            <dependency>
+                <groupId>io.beanmapper</groupId>
+                <artifactId>beanmapper</artifactId>
+                <version>3.1.0</version>
+            </dependency>
+
+            <!-- <dependency>
+                 <groupId>com.fasterxml.jackson.core</groupId>
+                 <artifactId>jackson-databind</artifactId>
+                 <version>2.12.3</version>
+             </dependency>-->
+
+            <dependency>
+                <groupId>com.github.whvcse</groupId>
+                <artifactId>easy-captcha</artifactId>
+                <version>1.6.2</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>joda-time</groupId>
+                <artifactId>joda-time</artifactId>
+                <version>2.10.10</version>
+            </dependency>
+            <dependency>
+                <groupId>com.vdurmont</groupId>
+                <artifactId>emoji-java</artifactId>
+                <version>5.1.1</version>
+            </dependency>
+
+            <!-- 汉字转拼音 -->
+            <dependency>
+                <groupId>com.github.stuxuhai</groupId>
+                <artifactId>jpinyin</artifactId>
+                <version>1.1.8</version>
+            </dependency>
+            <!-- ip查询-->
+            <dependency>
+                <groupId>org.lionsoul</groupId>
+                <artifactId>ip2region</artifactId>
+                <version>1.7.2</version>
+            </dependency>
+            <dependency>
+                <groupId>eu.bitwalker</groupId>
+                <artifactId>UserAgentUtils</artifactId>
+                <version>1.21</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>0.10.2</version>
+            </dependency>
+
+
+            <!--############################ apache ########################################-->
+            <!--zookeeper-->
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+            </dependency>
+            <!--计算对象大小的工具-->
+            <dependency>
+                <groupId>org.apache.lucene</groupId>
+                <artifactId>lucene-core</artifactId>
+                <version>${lucene.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-compress</artifactId>
+                <version>1.21</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>2.11.0</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-fileupload</groupId>
+                <artifactId>commons-fileupload</artifactId>
+                <version>1.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-beanutils</groupId>
+                <artifactId>commons-beanutils</artifactId>
+                <version>1.9.4</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-digester</groupId>
+                <artifactId>commons-digester</artifactId>
+                <version>1.8</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi</artifactId>
+                <version>5.2.2</version>
+                <!--<version>4.1.2</version>-->
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.poi</groupId>
+                <artifactId>poi-ooxml</artifactId>
+                <version>5.2.2</version>
+                <!--<version>4.1.2</version>-->
+            </dependency>
+
+            <!--#################### 获取系统数据 u#################-->
+            <dependency>
+                <groupId>com.github.oshi</groupId>
+                <artifactId>oshi-core</artifactId>
+                <version>5.3.6</version>
+            </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna</artifactId>
+                <version>5.6.0</version>
+            </dependency>
+            <dependency>
+                <groupId>net.java.dev.jna</groupId>
+                <artifactId>jna-platform</artifactId>
+                <version>5.6.0</version>
+            </dependency>
+
+
+            <!--            <dependency>
+                            <groupId>io.dropwizard.metrics</groupId>
+                            <artifactId>metrics-core</artifactId>
+                            <version>4.2.8</version>
+                        </dependency>-->
+
+
+            <!--ocr-->
+            <dependency>
+                <groupId>net.sourceforge.tess4j</groupId>
+                <artifactId>tess4j</artifactId>
+                <version>5.2.1</version>
+            </dependency>
+            <!--htmlunit-->
+            <dependency>
+                <groupId>org.jsoup</groupId>
+                <artifactId>jsoup</artifactId>
+                <version>1.15.3</version>
+            </dependency>
+            <dependency>
+                <groupId>net.sourceforge.htmlunit</groupId>
+                <artifactId>htmlunit</artifactId>
+                <version>2.70.0</version>
+            </dependency>
+
+            <!--################## 加解密 #######################-->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15to18</artifactId>
+                <version>1.70</version>
+                <optional>true</optional>
+            </dependency>
+
+            <!--#################### google ###########################-->
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>31.0.1-jre</version>
+            </dependency>
+            <dependency>
+                <groupId>com.google.zxing</groupId>
+                <artifactId>core</artifactId>
+                <version>3.4.1</version>
+            </dependency>
+
+
+            <!--################### okhttp #############################-->
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>retrofit</artifactId>
+                <version>${retrofit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-jackson</artifactId>
+                <version>${retrofit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.squareup.retrofit2</groupId>
+                <artifactId>converter-scalars</artifactId>
+                <version>${retrofit.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okio</groupId>
+                <artifactId>okio</artifactId>
+                <version>${okio.version}</version>
+            </dependency>
+
+            <!--<dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>okhttp</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.squareup.okhttp3</groupId>
+                <artifactId>logging-interceptor</artifactId>
+                <version>${okhttp3.version}</version>
+            </dependency>-->
+
+            <!--###################### file&oss ##########################-->
+            <dependency>
+                <groupId>com.amazonaws</groupId>
+                <artifactId>aws-java-sdk-s3</artifactId>
+                <version>1.12.177</version>
+            </dependency>
+            <dependency>
+                <groupId>io.minio</groupId>
+                <artifactId>minio</artifactId>
+                <version>8.3.7</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>3.13.2</version>
+            </dependency>
+            <dependency>
+                <groupId>com.qcloud</groupId>
+                <artifactId>cos_api</artifactId>
+                <version>5.6.69</version>
+            </dependency>
+
+            <!--##################### jwt ###############################-->
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-api</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-impl</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.jsonwebtoken</groupId>
+                <artifactId>jjwt-jackson</artifactId>
+                <version>${jjwt.version}</version>
+            </dependency>
+
+            <!--##################### swaggger-doc ##########################-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-boot-starter</artifactId>
+                <version>3.0.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.xiaoymin</groupId>
+                <artifactId>knife4j-spring-boot-starter</artifactId>
+                <version>3.0.3</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>1.5.20</version>
+            </dependency>
+
+            <!--##################### wrapper-doc ##########################-->
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+                <version>2.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springdoc</groupId>
+                <artifactId>springdoc-openapi-starter-webmvc-api</artifactId>
+                <version>2.0.4</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>2.2.22</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-annotations-jakarta</artifactId>
+                <version>2.2.22</version>
+            </dependency>
+            <dependency>
+                <groupId>io.swagger.core.v3</groupId>
+                <artifactId>swagger-models-jakarta</artifactId>
+                <version>2.2.22</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-api</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-embedded</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-connector-mysql</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-connector-sqlserver</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.debezium</groupId>
+                <artifactId>debezium-connector-postgres</artifactId>
+                <version>${debezium.version}</version>
+            </dependency>
+            <!--###################### flink cdc ########################-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--flink connector 基础包-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-connector-base</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-streaming-java</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-core</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-clients</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+
+            <!--开启webui支持，默认是8081，默认没有开启-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-runtime-web</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--Flink Table API和SQL API使得在Flink中进行数据处理变得更加简单和高效
+            通过使用Table API和SQL API，可以像使用传统的关系型数据库一样，通过编写SQL语句或者使用类似于
+            Java的API进行数据处理和分析-->
+            <dependency>
+                <groupId>org.apache.flink</groupId>
+                <artifactId>flink-table-runtime</artifactId>
+                <version>${flink.version}</version>
+            </dependency>
+
+            <!--CDC mysql 源-->
+            <dependency>
+                <groupId>com.ververica</groupId>
+                <artifactId>flink-sql-connector-mysql-cdc</artifactId>
+                <version>${flink-mysql.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ververica</groupId>
+                <artifactId>flink-sql-connector-sqlserver-cdc</artifactId>
+                <version>${flink-sqlserver.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ververica</groupId>
+                <artifactId>flink-connector-sqlserver-cdc</artifactId>
+                <version>${flink-sqlserver.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>qiniu-java-sdk</artifactId>
+                <version>7.9.3</version>
+                <!--<scope>provided</scope>-->
+            </dependency>
+            <dependency>
+                <groupId>com.qiniu</groupId>
+                <artifactId>happy-dns-java</artifactId>
+                <version>0.1.6</version>
+                <!--<scope>provided</scope>-->
+            </dependency>
+
+            <!--oss-->
+
+
+            <!--###################### cloud-framework ########################-->
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>framework-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <!--            <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>framework-utils</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>framework-loader</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>framework-lock</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>-->
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>framework-validate</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <!--            <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>framework-spi</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>-->
+
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>framework-datasource</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>framework-cdc</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crud-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <!--           <dependency>
+                           <groupId>org.dows.framework</groupId>
+                           <artifactId>crud-boot</artifactId>
+                           <version>${dows-framework.version}</version>
+                       </dependency>-->
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crud-starter</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crud-elastic</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crud-engine</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <!--            <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>crud-privilege</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>crud-jpa</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>-->
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crud-mybatis</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crud-redis</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crypto-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crypto-algorithm</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crypto-boot</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>crypto-sdk</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+            <!--            <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>framework-event</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>-->
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>job-crud</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>job-quartz</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>job-sdk</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+
+
+
+
+            <!-- <dependency>
+                 <groupId>org.dows.framework</groupId>
+                 <artifactId>limit-wrapper</artifactId>
+                 <version>${dows-framework.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.framework</groupId>
+                 <artifactId>limit-core</artifactId>
+                 <version>${dows-framework.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.framework</groupId>
+                 <artifactId>limit-boot</artifactId>
+                 <version>${dows-framework.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.framework</groupId>
+                 <artifactId>limit-sdk</artifactId>
+                 <version>${dows-framework.version}</version>
+             </dependency>-->
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>sequence-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>sequence-boot</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>sequence-db</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>sequence-redis</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>sequence-zk</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>sequence-snowflake</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <!--            <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>security-wrapper</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>
+                        <dependency>
+                            <groupId>org.dows.framework</groupId>
+                            <artifactId>security-core</artifactId>
+                            <version>${dows-framework.version}</version>
+                        </dependency>-->
+
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rest-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rest-boot</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>client-feign</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>client-http</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>client-retrofit</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rest-crypto</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rest-degrade</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rest-limiter</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>rest-sla</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>framework-ddl</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>cache-caffeine</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>websocket-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>websocket-boot</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>websocket-annotation</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>websocket-netty</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+
+            <!--######################## doc ###########################-->
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-boot</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-ocr</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-parser</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-processor</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-reader</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>doc-writer</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+
+            <!--######################### oss #################################-->
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-engine</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-api</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-local</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-ftp</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-sftp</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-minio</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-tencent</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-qiniu</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <!--mq-->
+            <!--<dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>mq-wrapper</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>mq-boot</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>mq-consumer</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>mq-core</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>mq-producer</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>notify-wrapper</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>notify-impl</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>-->
+
+            <!--##############auth####################-->
+            <!--<dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-wrapper</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-client</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-config</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-crud</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-jwt</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-oauth</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-resources</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-rest</artifactId>
+                <version>${auth.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>auth-server</artifactId>
+                <version>${auth.version}</version>
+            </dependency>-->
+
+
+            <!--account-->
+            <!-- <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-wrapper</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-crud</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-biz</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-boot</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-feign</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-pojo</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-rest-admin</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-rest-developer</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-rest-tenant</artifactId>
+                 <version>${account.version}</version>
+             </dependency>
+             <dependency>
+                 <groupId>org.dows.cloud</groupId>
+                 <artifactId>account-rest-user</artifactId>
+                 <version>${account.version}</version>
+             </dependency>-->
+            <!--rbac-->
+            <!--<dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>rbac-wrapper</artifactId>
+                <version>${rbac.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>rbac-crud</artifactId>
+                <version>${rbac.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>rbac-biz</artifactId>
+                <version>${rbac.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>rbac-rest</artifactId>
+                <version>${rbac.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>rbac-boot</artifactId>
+                <version>${rbac.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>rbac-pojo</artifactId>
+                <version>${rbac.version}</version>
+            </dependency>-->
+
+            <!--tenant-->
+            <!--<dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>tenant-wrapper</artifactId>
+                <version>${tenant.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>tenant-crud</artifactId>
+                <version>${tenant.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>tenant-rest</artifactId>
+                <version>${tenant.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>tenant-boot</artifactId>
+                <version>${tenant.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>tenant-biz</artifactId>
+                <version>${tenant.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.dows.cloud</groupId>
+                <artifactId>tenant-pojo</artifactId>
+                <version>${tenant.version}</version>
+            </dependency>-->
+
+
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>framework-sign</artifactId>
+                <version>${dows-framework.version}</version>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+
+    <build>
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-deploy-plugin</artifactId>
+                <version>${maven-deploy-plugin.version}</version>
+            </plugin>
+
+            <!-- 统一版本号管理 -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>flatten-maven-plugin</artifactId>
+                <version>${flatten-maven-plugin.version}</version>
+                <inherited>true</inherited>
+                <configuration>
+                    <updatePomFile>true</updatePomFile>
+                    <flattenMode>resolveCiFriendliesOnly</flattenMode>
+                    <pomElements>
+                        <parent>expand</parent>
+                        <distributionManagement>remove</distributionManagement>
+                        <repositories>remove</repositories>
+                    </pomElements>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>flatten</id>
+                        <phase>process-resources</phase>
+                        <goals>
+                            <goal>flatten</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>flatten.clean</id>
+                        <phase>clean</phase>
+                        <goals>
+                            <goal>clean</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>
+        <!-- 由于未正式发版，所以在Maven仓库里还搜不到，需要额外配置一个远程仓库 -->
+        <repository>
+            <id>ossrh</id>
+            <name>OSS Snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+
+        <repository>
+            <id>spring-snapshots</id>
+            <name>Spring Snapshots</name>
+            <url>https://repo.spring.io/libs-snapshot-local</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>spring-milestones</id>
+            <name>Spring Milestones</name>
+            <url>https://repo.spring.io/libs-milestone-local</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>spring-releases</id>
+            <name>Spring Releases</name>
+            <url>https://repo.spring.io/release</url>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    <distributionManagement>
+        <!--<repository>
+            <sequence>rdc-releases</sequence>
+            <url>https://packages.aliyun.com/maven/repository/2290151-release-R4vX5T/</url>
+        </repository>-->
+        <snapshotRepository>
+            <url>https://packages.aliyun.com/maven/repository/2290151-snapshot-aLhHBl/</url>
+            <id>rdc-snapshots</id>
+           <!-- <url>http://192.168.111.103:8081/repository/maven-snapshots/</url>-->
+        </snapshotRepository>
+
+    </distributionManagement>
+
+</project>
