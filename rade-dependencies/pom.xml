@@ -27,7 +27,7 @@
 
         <mybatis-plus.version>3.5.6</mybatis-plus.version>
         <!--<mybatis-flex.version>1.10.8</mybatis-flex.version>-->
-        <mybatis-flex.ext.version>1.10.8.120</mybatis-flex.ext.version>
+        <mybatis-flex-ext.version>1.10.8.120</mybatis-flex-ext.version>
 
         <jjwt.version>0.12.6</jjwt.version>
         <disruptor.version>3.4.4</disruptor.version>
@@ -183,7 +183,7 @@
             <dependency>
                 <groupId>com.tangzc</groupId>
                 <artifactId>mybatis-flex-ext-spring-boot3-starter</artifactId>
-                <version>${mybatis-flex.ext.version}</version>
+                <version>${mybatis-flex-ext.version}</version>
             </dependency>
 
             <!--<dependency>
@@ -225,11 +225,7 @@
                 <artifactId>disruptor</artifactId>
                 <version>${disruptor.version}</version>
             </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>${commons-io.version}</version>
-            </dependency>
+
 
             <!--#################### 接口文档相关 #######################-->
             <dependency>
@@ -399,7 +395,11 @@
                 <version>${lucene.version}</version>
             </dependency>
 
-
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
+            </dependency>
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-compress</artifactId>
@@ -410,11 +410,7 @@
                 <artifactId>commons-collections4</artifactId>
                 <version>4.4</version>
             </dependency>
-            <dependency>
-                <groupId>commons-io</groupId>
-                <artifactId>commons-io</artifactId>
-                <version>2.11.0</version>
-            </dependency>
+
             <dependency>
                 <groupId>commons-fileupload</groupId>
                 <artifactId>commons-fileupload</artifactId>
