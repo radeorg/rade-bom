@@ -41,12 +41,16 @@
         <hutool.version>5.8.26</hutool.version>
         <ognl.version>3.3.2</ognl.version>
         <fastjson2.version>2.0.53</fastjson2.version>
-        <perf4j.version>0.9.16</perf4j.version>
-        <weixin-java.version>4.6.3.B</weixin-java.version>
+        <json-path.version>2.9.0</json-path.version>
+        <assured.version>5.5.1</assured.version>
         <dom4j.version>2.1.4</dom4j.version>
         <easyexcel.version>4.0.3</easyexcel.version>
-        <commons-io.version>2.18.0</commons-io.version>
         <jsoup.version>1.19.1</jsoup.version>
+        <jsqlparser.version>5.1</jsqlparser.version>
+
+        <perf4j.version>0.9.16</perf4j.version>
+        <weixin-java.version>4.6.3.B</weixin-java.version>
+        <commons-io.version>2.18.0</commons-io.version>
 
         <swagger.version>2.2.22</swagger.version>
 
@@ -156,6 +160,25 @@
             </dependency>
 
 
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>json-path</artifactId>
+                <version>${assured.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${assured.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.jayway.jsonpath</groupId>
+                <artifactId>json-path</artifactId>
+                <version>${json-path.version}</version>
+            </dependency>
+
+
+
             <!--############################# mq start ##############################-->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
@@ -223,11 +246,11 @@
                 <version>${mybatis-flex-ext.version}</version>
             </dependency>
 
-            <!--<dependency>
+            <dependency>
                 <groupId>com.github.jsqlparser</groupId>
                 <artifactId>jsqlparser</artifactId>
-                <version>4.9</version>
-            </dependency>-->
+                <version>${jsqlparser.version}</version>
+            </dependency>
 
 
             <!--alibaba -->
