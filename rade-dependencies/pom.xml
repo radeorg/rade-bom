@@ -36,6 +36,7 @@
         <modelmapper.version>3.2.0</modelmapper.version>
         <retrofit.version>2.9.0</retrofit.version>
         <okio.version>2.8.0</okio.version>
+        <orika.version>3.4.2</orika.version>
 
         <guava.version>[30.1.1-jre,)</guava.version>
         <hutool.version>5.8.26</hutool.version>
@@ -178,7 +179,11 @@
             </dependency>
 
 
-
+            <dependency>
+                <groupId>dev.akkinoc.spring.boot</groupId>
+                <artifactId>orika-spring-boot-starter</artifactId>
+                <version>${orika.version}</version>
+            </dependency>
             <!--############################# mq start ##############################-->
             <dependency>
                 <groupId>org.apache.rocketmq</groupId>
