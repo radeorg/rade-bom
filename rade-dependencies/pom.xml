@@ -1544,10 +1544,10 @@
 
         <plugins>
 
-            <plugin>
+<!--            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
-            </plugin>
+            </plugin>-->
 
             <!-- 统一版本号管理 -->
             <plugin>
