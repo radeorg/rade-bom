@@ -282,16 +282,6 @@
             </dependency>-->
 
 
-
-
-            <!--日志相关-->
-            <dependency>
-                <groupId>com.lmax</groupId>
-                <artifactId>disruptor</artifactId>
-                <version>${disruptor.version}</version>
-            </dependency>
-
-
             <!--#################### 接口文档相关 #######################-->
             <!--<dependency>
                 <groupId>io.swagger.core.v3</groupId>
