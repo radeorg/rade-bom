@@ -824,6 +824,13 @@
 
 
             <!--###################### cloud-framework ########################-->
+<!--
+            <dependency>
+                <groupId>org.dows.framework</groupId>
+                <artifactId>oss-engine</artifactId>
+            </dependency>-->
+
+
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>framework-api</artifactId>
@@ -900,67 +907,67 @@
             <!--            <dependency>
                             <groupId>org.dows.framework</groupId>
                             <artifactId>crud-privilege</artifactId>
-                            <version>${dows-framework.version}</version>
+                            <version>${rade.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.dows.framework</groupId>
                             <artifactId>crud-jpa</artifactId>
-                            <version>${dows-framework.version}</version>
+                            <version>${rade.version}</version>
                         </dependency>-->
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>crud-mybatis</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>crud-redis</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>crypto-api</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>crypto-algorithm</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>crypto-boot</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>crypto-sdk</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
             <!--            <dependency>
                             <groupId>org.dows.framework</groupId>
                             <artifactId>framework-event</artifactId>
-                            <version>${dows-framework.version}</version>
+                            <version>${rade.version}</version>
                         </dependency>-->
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>job-crud</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>job-quartz</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>job-sdk</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
@@ -971,124 +978,124 @@
             <!-- <dependency>
                  <groupId>org.dows.framework</groupId>
                  <artifactId>limit-wrapper</artifactId>
-                 <version>${dows-framework.version}</version>
+                 <version>${rade.version}</version>
              </dependency>
              <dependency>
                  <groupId>org.dows.framework</groupId>
                  <artifactId>limit-core</artifactId>
-                 <version>${dows-framework.version}</version>
+                 <version>${rade.version}</version>
              </dependency>
              <dependency>
                  <groupId>org.dows.framework</groupId>
                  <artifactId>limit-boot</artifactId>
-                 <version>${dows-framework.version}</version>
+                 <version>${rade.version}</version>
              </dependency>
              <dependency>
                  <groupId>org.dows.framework</groupId>
                  <artifactId>limit-sdk</artifactId>
-                 <version>${dows-framework.version}</version>
+                 <version>${rade.version}</version>
              </dependency>-->
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>sequence-api</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>sequence-boot</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>sequence-db</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>sequence-redis</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>sequence-zk</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>sequence-snowflake</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
             <!--            <dependency>
                             <groupId>org.dows.framework</groupId>
                             <artifactId>security-wrapper</artifactId>
-                            <version>${dows-framework.version}</version>
+                            <version>${rade.version}</version>
                         </dependency>
                         <dependency>
                             <groupId>org.dows.framework</groupId>
                             <artifactId>security-core</artifactId>
-                            <version>${dows-framework.version}</version>
+                            <version>${rade.version}</version>
                         </dependency>-->
 
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>rest-api</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>rest-boot</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>client-feign</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>client-http</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>client-retrofit</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>rest-crypto</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>rest-degrade</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>rest-limiter</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>rest-sla</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>framework-ddl</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>cache-caffeine</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
@@ -1096,22 +1103,22 @@
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>websocket-api</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>websocket-boot</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>websocket-annotation</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>websocket-netty</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
@@ -1120,37 +1127,37 @@
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-api</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-boot</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-ocr</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-parser</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-processor</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-reader</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>doc-writer</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
 
@@ -1158,83 +1165,83 @@
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
-                <artifactId>oss-engine</artifactId>
-                <version>${dows-framework.version}</version>
+                <artifactId>oss-boot</artifactId>
+                <version>${rade.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-api</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-local</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-ftp</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-sftp</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-minio</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-tencent</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>oss-qiniu</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
             <!--mq-->
             <!--<dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>mq-wrapper</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>mq-boot</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>mq-consumer</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>mq-core</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>mq-producer</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
 
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>notify-wrapper</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>notify-impl</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>-->
 
             <!--##############auth####################-->
@@ -1405,7 +1412,7 @@
             <!--<dependency>
                 <groupId>org.dows.framework</groupId>
                 <artifactId>framework-sign</artifactId>
-                <version>${dows-framework.version}</version>
+                <version>${rade.version}</version>
             </dependency>-->
 
         </dependencies>
